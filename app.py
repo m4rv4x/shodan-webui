@@ -5,7 +5,11 @@ import sqlite3
 app = Flask(__name__)
 
 # Set up Shodan API
-SHODAN_API_KEY = "My_Shodan_Api_Key"
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+SHODAN_API_KEY = os.environ["SHODAN_API_KEY"]
 api = shodan.Shodan(SHODAN_API_KEY)
 
 # Set up SQLite database
